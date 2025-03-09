@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leather Collection</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <div class="btn-group">
+                <button class="nav-btn"><i class="ph-bold ph-arrow-left"></i>Collection</button>
+                <button class="nav-btn size-toggle"><i class="ph-bold ph-arrow-down"></i>Size</button>
+            </div>
+            <div class="btn-group">
+                <button class="nav-btn currency-btn">USD</button>
+                <button class="nav-btn cart-btn">Cart <span class="cart-count">0</span></button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page-content">
+        <section class="col product-img">
+            <div class="product-img-wrapper">
+                <img src="images/image_15.webp" alt="Product preview" loading="eager" id="mainImage" />
+            </div>
+        </section>
+
+        <section class="col product-copy">
+            <div class="product-details">
+                <h1 class="product-title">Premium Leather Jacket</h1>
+                <p class="product-price">$299.99</p>
+                <div class="product-description">
+                    <p>Premium quality leather jacket with modern design</p>
+                    <p>• 100% genuine leather</p>
+                    <p>• Hand-crafted details</p>
+                    <p>• Available in multiple sizes</p>
+                </div>
+            </div>
+
+            <div class="product-vars">
+                <img src="images/image_16.webp" alt="Front view" loading="lazy" />
+                <img src="images/image_10.webp" alt="Back view" loading="lazy" />
+                <img src="images/image_9.webp" alt="Side view" loading="lazy" />
+            </div>
+
+            <div class="size-selector">
+                <h3>Select Size</h3>
+                <div class="size-guide">
+                    <button class="size-btn" data-size="S">
+                        <span class="size-label">S</span>
+                        <span class="size-info">Chest: 36-38"</span>
+                    </button>
+                    <button class="size-btn" data-size="M">
+                        <span class="size-label">M</span>
+                        <span class="size-info">Chest: 38-40"</span>
+                    </button>
+                    <button class="size-btn" data-size="L">
+                        <span class="size-label">L</span>
+                        <span class="size-info">Chest: 40-42"</span>
+                    </button>
+                    <button class="size-btn" data-size="XL">
+                        <span class="size-label">XL</span>
+                        <span class="size-info">Chest: 42-44"</span>
+                    </button>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="size-guide-btn">Size Guide</button>
+            </div>
+
+            <div class="other-products">
+                <h2>You might also like</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <img class="product-card-img" src="images/image_11.webp" alt="Related product 1" loading="lazy" />
+                        <div class="product-info">
+                            <h3>Leather Boots</h3>
+                            <span class="price">$199.99</span>
+                            <button class="view-product">View Details</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img class="product-card-img" src="images/image_12.webp" alt="Related product 2" loading="lazy" />
+                        <div class="product-info">
+                            <h3>Leather Belt</h3>
+                            <span class="price">$49.99</span>
+                            <button class="view-product">View Details</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img class="product-card-img" src="images/image_13.webp" alt="Related product 3" loading="lazy" />
+                        <div class="product-info">
+                            <h3>Leather Wallet</h3>
+                            <span class="price">$79.99</span>
+                            <button class="view-product">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    // GSAP Animations
+    const timeline = gsap.timeline();
+
+    timeline
+        .from(".product-img", {
+            duration: 1,
+            x: -100,
+            opacity: 0,
+        })
+        .from(".nav", {
+            duration: 0.5,
+            y: -50,
+            opacity: 0,
+        }, "-=0.5")
+        // .from(".product-vars img", {
+        //     duration: 0.5,
+        //     y: 50,
+        //     opacity: 0,
+        //     stagger: 0.2,
+        // })
+        // .from(".product-card", {
+        //     duration: 0.5,
+        //     y: 50,
+        //     opacity: 0,
+        //     stagger: 0.2,
+        // });
+
+    // Image Gallery
+    const mainImage = document.getElementById('mainImage');
+    const variantImages = document.querySelectorAll('.product-vars img');
+
+    variantImages.forEach(img => {
+        img.addEventListener('click', () => {
+            gsap.to(mainImage, {
+                opacity: 0,
+                duration: 0.3,
+                onComplete: () => {
+                    mainImage.src = img.src;
+                    gsap.to(mainImage, {
+                        opacity: 1,
+                        duration: 0.3
+                    });
+                }
+            });
+        });
+    });
+
+    // Size Selection
+    const sizeBtns = document.querySelectorAll('.size-btn');
+    let selectedSize = null;
+
+    sizeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            sizeBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            selectedSize = btn.dataset.size;
+        });
+    });
+
+    // Cart Functionality
+    let cartCount = 0;
+    const cartCountElement = document.querySelector('.cart-count');
+    const addToCartBtn = document.querySelector('.add-to-cart');
+
+    addToCartBtn.addEventListener('click', () => {
+        if (!selectedSize) {
+            alert('Please select a size first');
+            return;
+        }
+        
+        cartCount++;
+        cartCountElement.textContent = cartCount;
+        
+        gsap.from('.cart-count', {
+            scale: 1.5,
+            duration: 0.3,
+            ease: 'back.out'
+        });
+    });
+});
+    </script>
+</body>
+</html>
