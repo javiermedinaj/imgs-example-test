@@ -1,0 +1,81 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "name": "Premium Leather Jacket",
+        "price": 299.99,
+        "description": "Premium quality leather jacket with modern design",
+        "features": [
+          "100% genuine leather",
+          "Hand-crafted details",
+          "Available in multiple sizes"
+        ],
+        "mainImage": "../images/image_15.webp",
+        "images": [
+          "../images/image_10.webp",
+          "../images/image_9.webp",
+          "../images/image_0.webp"
+        ],
+        "sizes": [
+          {"code": "S", "name": "S", "description": "Chest: 36-38\""},
+          {"code": "M", "name": "M", "description": "Chest: 38-40\""},
+          {"code": "L", "name": "L", "description": "Chest: 40-42\""},
+          {"code": "XL", "name": "XL", "description": "Chest: 42-44\""}
+        ],
+        "category": "jackets"
+      },
+      {
+        "id": 2,
+        "name": "Leather Boots",
+        "price": 199.99,
+        "description": "High-quality leather boots",
+        "features": [
+          "Genuine leather",
+          "Durable sole",
+          "Water resistant"
+        ],
+        "mainImage": "../images/image_11.webp",
+        "images": [],
+        "sizes": [
+          {"code": "7", "name": "7", "description": "EU 40"},
+          {"code": "8", "name": "8", "description": "EU 41"},
+          {"code": "9", "name": "9", "description": "EU 42"}
+        ],
+        "category": "footwear"
+      },
+      {
+        "id": 3,
+        "name": "Leather Belt",
+        "price": 49.99,
+        "description": "Classic leather belt",
+        "features": [
+          "Premium leather",
+          "Metal buckle",
+          "Versatile design"
+        ],
+        "mainImage": "../images/image_12.webp",
+        "images": [],
+        "sizes": [
+          {"code": "S", "name": "S", "description": "28-30\""},
+          {"code": "M", "name": "M", "description": "32-34\""},
+          {"code": "L", "name": "L", "description": "36-38\""}
+        ],
+        "category": "accessories"
+      },
+      {
+        "id": 4,
+        "name": "Leather Wallet",
+        "price": 79.99,
+        "description": "Stylish leather wallet",
+        "features": [
+          "Full grain leather",
+          "Multiple card slots",
+          "Coin pocket"
+        ],
+        "mainImage": "../images/image_13.webp",
+        "images": [],
+        "sizes": [],
+        "category": "accessories"
+      }
+    ]
+  }

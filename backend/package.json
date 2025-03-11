@@ -1,0 +1,15 @@
+{
+  "name": "imgs-scrap",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "^1.2.4"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "hono": "^4.7.4",
+    "puppeteer": "^24.4.0"
+  }
+}

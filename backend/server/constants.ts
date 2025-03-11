@@ -1,0 +1,1 @@
+export const DATA_PATH = `${import.meta.dir}/../data/products.json`;
