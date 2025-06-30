@@ -176,4 +176,5 @@ dist
 
 
 **/node_modules/
-backend/downloaded_images/
+backend/scraper/downloaded_images/
+backend/scraper/simple_images/

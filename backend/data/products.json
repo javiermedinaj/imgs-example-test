@@ -10,11 +10,11 @@
           "Hand-crafted details",
           "Available in multiple sizes"
         ],
-        "mainImage": "../images/image_15.webp",
+        "mainImage": "image_15.webp",
         "images": [
-          "../images/image_10.webp",
-          "../images/image_9.webp",
-          "../images/image_0.webp"
+          "image_10.webp",
+          "image_9.webp",
+          "image_0.webp"
         ],
         "sizes": [
           {"code": "S", "name": "S", "description": "Chest: 36-38\""},
@@ -34,7 +34,7 @@
           "Durable sole",
           "Water resistant"
         ],
-        "mainImage": "../images/image_11.webp",
+        "mainImage": "image_11.webp",
         "images": [],
         "sizes": [
           {"code": "7", "name": "7", "description": "EU 40"},
@@ -53,7 +53,7 @@
           "Metal buckle",
           "Versatile design"
         ],
-        "mainImage": "../images/image_12.webp",
+        "mainImage": "image_12.webp",
         "images": [],
         "sizes": [
           {"code": "S", "name": "S", "description": "28-30\""},
@@ -72,10 +72,10 @@
           "Multiple card slots",
           "Coin pocket"
         ],
-        "mainImage": "../images/image_13.webp",
+        "mainImage": "image_13.webp",
         "images": [],
         "sizes": [],
         "category": "accessories"
       }
     ]
-  }
+}

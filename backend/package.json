@@ -2,6 +2,10 @@
   "name": "imgs-scrap",
   "module": "index.ts",
   "type": "module",
+   "scripts": {
+    "dev": "bun run index.ts",
+    "start": "bun run index.ts"
+  },
   "devDependencies": {
     "@types/bun": "^1.2.4"
   },

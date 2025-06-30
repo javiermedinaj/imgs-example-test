@@ -12,15 +12,19 @@ const app = new Hono();
   await loadProducts(DATA_PATH);
 })();
 
-// Middlewares
-app.use('/*', corsMiddleware);
-app.use('/images/*', serveStatic({ root: '/' }));
 
-//routes
+app.use('/*', corsMiddleware);
+
+app.use('/images/*', serveStatic({ 
+  root: './', // Ruta relativa desde donde se ejecuta el servidor
+  rewriteRequestPath: (path) => {
+    return path.replace('/images', '/backend/images');
+  }
+}));
+
 app.route('/', indexRouter);
 app.route('/api/products', productsRouter);
 
-// Manejo de 404
 app.notFound((c) => {
   return c.json({ error: 'Not found' }, 404);
 });

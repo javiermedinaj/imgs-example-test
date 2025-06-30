@@ -28,16 +28,13 @@ async function scrapeImages() {
   });
   const page = await browser.newPage();
 
-  // Reemplaza esta URL con la página que quieres scrapear
   await page.goto(
     "https://www.entirestudios.com/collection/drop-10/tag:leather",
   );
 
-  // Obtener todas las imágenes con la clase específica
   const imageUrls = await page.evaluate(() => {
     const images = document.querySelectorAll(".lazyloaded-simple");
     return Array.from(images).map((img) => {
-      // Intentar obtener la URL de diferentes atributos
       return (
         (img as HTMLImageElement).src ||
         (img as HTMLImageElement).getAttribute("data-src") ||
@@ -46,13 +43,12 @@ async function scrapeImages() {
     });
   });
 
-  // Crear directorio para las imágenes si no existe
+  // Directorio de pruebas ignorado
   const downloadDir = path.join(__dirname, "simple_images");
   if (!fs.existsSync(downloadDir)) {
     fs.mkdirSync(downloadDir);
   }
 
-  // Descargar cada imagen
   for (let [index, url] of imageUrls.entries()) {
     if (url) {
       const filename = path.join(downloadDir, `image_${index}.webp`);

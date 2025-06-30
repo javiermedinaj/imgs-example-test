@@ -26,28 +26,23 @@ async function scrapeImages() {
   });
   const page = await browser.newPage();
   
-  // URL específica del producto
   await page.goto('https://www.entirestudios.com/product/surge-skirt-koi');
 
-  // Obtener todas las imágenes del producto
   const imageUrls = await page.evaluate(() => {
-    // Buscar todas las imágenes dentro de es-character-image
     const images = document.querySelectorAll('.es-character-image img');
     return Array.from(images).map(img => {
-      // Intentar obtener la URL de diferentes atributos
       return (img as HTMLImageElement).src || 
              (img as HTMLImageElement).getAttribute('data-src') || 
              (img as HTMLImageElement).currentSrc;
-    }).filter(url => url); // Filtrar URLs vacías
+    }).filter(url => url);
   });
 
-  // Crear directorio para las imágenes si no existe
+  // Directorio de pruebas
   const downloadDir = path.join(__dirname, 'downloaded_images');
   if (!fs.existsSync(downloadDir)) {
     fs.mkdirSync(downloadDir);
   }
 
-  // Descargar cada imagen
   console.log(`Encontradas ${imageUrls.length} imágenes`);
   for (let [index, url] of imageUrls.entries()) {
     if (url) {
