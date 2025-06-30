@@ -1,11 +1,11 @@
-# ---- Frontend Dockerfile ----
-FROM node:20-alpine as build
+FROM oven/bun:1.1 as build
 
 WORKDIR /app
 
 COPY . .
 
-RUN npm install && npm run build
+RUN bun install
+RUN bun run build
 
 FROM nginx:alpine
 COPY --from=build /app/dist /usr/share/nginx/html
